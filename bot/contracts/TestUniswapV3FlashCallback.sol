@@ -1,5 +1,9 @@
-pragma solidity =0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
 pragma experimental ABIEncoderV2;
+
+
+import "contracts/ERC20/IERC20.sol";
 
 contract TestUniswapV3FlashCallback {
     address TOKEN_WETH  = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
@@ -14,7 +18,8 @@ contract TestUniswapV3FlashCallback {
     }
 
     function testFlash(address pool, uint amount, bool isToken0, bytes memory data) public { 
-	IUniswapV3PoolActions(pool).flash(address(this), amount ? isToken0 : 0, amount ? isToken0 : 0, data);
+        uint256 tokenAmount = (amount != 0 && isToken0) ? amount : 0; // Replace the condition based on your needs
+        IUniswapV3PoolActions(pool).flash(address(this), tokenAmount, tokenAmount, data);
     }
 }
 

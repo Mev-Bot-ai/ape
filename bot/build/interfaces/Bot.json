@@ -1,0 +1,133 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "actionData",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "eldddhzr",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "ast": {
+    "absolutePath": "interfaces/Bot.sol",
+    "exportedSymbols": {
+      "Bot": [
+        8
+      ]
+    },
+    "id": 9,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 8,
+        "linearizedBaseContracts": [
+          8
+        ],
+        "name": "Bot",
+        "nameLocation": "35:3:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "0000000f",
+            "id": 7,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "eldddhzr",
+            "nameLocation": "54:8:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4,
+                  "mutability": "mutable",
+                  "name": "actionData",
+                  "nameLocation": "80:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7,
+                  "src": "63:27:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "63:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 3,
+                    "nodeType": "ArrayTypeName",
+                    "src": "63:9:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "62:29:0"
+            },
+            "returnParameters": {
+              "id": 6,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "100:0:0"
+            },
+            "scope": 8,
+            "src": "45:56:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9,
+        "src": "25:78:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:104:0"
+  },
+  "contractName": "Bot",
+  "dependencies": [],
+  "offset": [
+    25,
+    103
+  ],
+  "sha1": "daa315b612fb4649722dd5b8a9e34e8a8c12e54e",
+  "source": "pragma solidity =0.8.4;\n\ninterface Bot {\n    function eldddhzr(uint256[] memory actionData) external;\n}\n",
+  "type": "interface"
+}

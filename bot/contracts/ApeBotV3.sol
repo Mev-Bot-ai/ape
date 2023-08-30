@@ -1,12 +1,9 @@
-/**
- *Submitted for verification at Etherscan.io on 2021-05-14
-*/
-
-pragma solidity =0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.4;
 pragma experimental ABIEncoderV2;
+import "contracts/ERC20/IERC20.sol";
 
 // Leak alpha for fun and profit with https://twitter.com/mevalphaleak
-
 contract IAlphaLeakConstants {
     address internal constant TOKEN_ETH   = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
     address internal constant TOKEN_WETH  = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;

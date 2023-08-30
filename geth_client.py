@@ -2,6 +2,9 @@ import asyncio
 import sys
 import requests
 import json
+from json.decoder import JSONDecodeError
+
+
 import configparser
 from aiohttp import ClientSession
 from time import sleep
@@ -51,31 +54,45 @@ def rebind():
     setattr(sys.modules[__name__], '_ws_geth_client', Web3(provider))
 
 
-def get_abi(address: HexAddress) -> dict:
-    print(f"retreiving contract ABI @ {address}")
-    params = {
-        'module': 'contract',
-        'action': 'getabi',
-        'apikey': _etherscan_apikey,
-        'address': address
-    }
-    abi_str = SESSION.get(_etherscan_url, params=params).json()['result']
-    if abi_str == 'contract source code not verified':
-        return False
-    abi = json.loads(abi_str)
-    sleep(0.2)
+def get_abi(address: ChecksumAddress) -> str:
+    abi_str = None  # Initialize to None
+    try:
+        # Your existing code to fetch ABI
+        # ...
+
+        # Debugging line: Print fetched ABI string
+        print(f"Fetched ABI for {address}: {abi_str}")
+
+        # Validate if abi_str is None or an empty string
+        if not abi_str:
+            print(f"Warning: ABI string is empty or None for address {address}")
+            return None
+
+        abi = json.loads(abi_str)
+    except JSONDecodeError as e:
+        print(f"Failed to decode JSON for ABI with address {address}")
+        print(f"Error: {str(e)}")
+        raise
     return abi
+
 
 
 def get_contract(address: HexAddress, abi: dict=None, ganache: bool=False) -> Union[Contract, bool]:
     try:
         abi = get_abi(address) if abi is None else abi
+
+        # Check if ABI is None
+        if abi is None:
+            print(f"Failed to fetch ABI for {address}. Cannot proceed.")
+            return False
+
         client = _ganache_client if ganache else _http_geth_client
         contract = client.eth.contract(Web3.toChecksumAddress(address), abi=abi)
         return contract
     except MismatchedABI:
         print(f'MismatchedABI @ {address}')
         return False
+
 
 
 def wait_for_sync():

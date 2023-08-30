@@ -228,11 +228,41 @@ CURVE_ERRORS = {
                                                    ('0xdAC17F958D2ee523a2206206994597C13D831ec7', '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'): 0}
 }
 
-mode_index = sys.argv.index('-m') if sys.argv.index('-m') > -1 else sys.argv.index('--mode')
-__test_mode__ = sys.argv[mode_index + 1] != 'live'
+try:
+    mode_index = sys.argv.index('-m') if '-m' in sys.argv else sys.argv.index('--mode')
+except ValueError:
+    mode_index = None
 
+# Initialize web3
+web3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/c55d8ff021d14bcd87b9389c1fbb7cad'))
 
-address_provider = get_contract('0x0000000022d53366457f9d5e68ec105046fc4383', ganache=__test_mode__)
+if not web3.isConnected():
+    print("Web3 not connected. Check your Ethereum node.")
+    exit()
+
+# Initialize test_mode and address
+test_mode = False
+address = '0x2dded6Da1BF5DBdF597C45fcFaa3194e53EcfeAF'
+
+# Get contract
+def get_contract(address, client):
+    try:
+        abi = fetch_abi(address)  # Replace with your own function for fetching ABI
+        if not abi:
+            print(f"Warning: ABI not found for address {address}.")
+            return None
+        return client.eth.contract(address=Web3.toChecksumAddress(address), abi=abi)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+# Check if contract retrieval was successful
+if address_provider is None:
+    print("Failed to get contract. Cannot proceed.")
+    print("Terminating local RPC client...")
+    exit()
+
+# If you've reached here, the contract was successfully retrieved
+print("Successfully fetched contract.")
 curve_provider = address_provider.functions
 curve_pool_info_address = curve_provider.get_address(1).call()
 CURVE_POOL_INFO = get_contract(curve_pool_info_address, ganache=__test_mode__)

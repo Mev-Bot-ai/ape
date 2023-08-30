@@ -1,0 +1,165 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "actionData",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "eldddhzr",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "3": "contracts/interfaces/Bot.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/Bot.sol",
+    "exportedSymbols": {
+      "Bot": [
+        1896
+      ]
+    },
+    "id": 1897,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1889,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Bot",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1896,
+        "linearizedBaseContracts": [
+          1896
+        ],
+        "name": "Bot",
+        "nameLocation": "67:3:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "0000000f",
+            "id": 1895,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "eldddhzr",
+            "nameLocation": "86:8:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1893,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1892,
+                  "mutability": "mutable",
+                  "name": "actionData",
+                  "nameLocation": "112:10:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1895,
+                  "src": "95:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1890,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "95:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 1891,
+                    "nodeType": "ArrayTypeName",
+                    "src": "95:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "94:29:3"
+            },
+            "returnParameters": {
+              "id": 1894,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "132:0:3"
+            },
+            "scope": 1896,
+            "src": "77:56:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1897,
+        "src": "57:78:3",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "32:104:3"
+  },
+  "bytecode": "",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 1000000
+    },
+    "version": "0.8.21+commit.d9974bed"
+  },
+  "contractName": "Bot",
+  "coverageMap": {
+    "branches": {},
+    "statements": {}
+  },
+  "dependencies": [],
+  "deployedBytecode": "",
+  "deployedSourceMap": "",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    57,
+    135
+  ],
+  "opcodes": "",
+  "pcMap": {},
+  "sha1": "7629cd89ce4dbe76ad0b4713dd9bc6a55ed4093f",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\ninterface Bot {\n    function eldddhzr(uint256[] memory actionData) external;\n}\n",
+  "sourceMap": "",
+  "sourcePath": "contracts/interfaces/Bot.sol",
+  "type": "interface"
+}

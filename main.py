@@ -68,18 +68,19 @@ if __name__ == "__main__":
                                  help='"live" to send over mainnet')
     __mode_parser__.add_argument('-pc', '--price_change', required=False,
                                  help='percent change in price to use in test mode')
-    __price_change__ = float(__mode_parser__.parse_args().price_change)
-    __live_mode__ = __mode_parser__.parse_args().mode == 'live'
-else:
-    __live_mode__ = False
-
+    args = __mode_parser__.parse_args()
+    __price_change__ = float(args.price_change) if args.price_change is not None else None
+    __live_mode__ = args.mode == 'live'
 
 __test_mode__ = not __live_mode__
 
 
 import brownie
-import brownie.network as network
+from brownie import network
 brownie.project.load('bot')
+def set_network(network_name):
+    if network_name in network.networks:
+        network.connect(network_name)
 brownie.network.connect('mainnet' if __live_mode__ else 'local-mainnet-fork')
 
 from brownie.project.BotProject import interface, ApeBotV3, TestUniswapV3FlashCallback

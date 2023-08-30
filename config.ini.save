@@ -1,0 +1,9 @@
+[DEFAULT]
+ws = wss://mainnet.infura.io/ws/v3/c55d8ff021d14bcd87b9389c1fbb7cad
+http = http://mainnet.infura.io/ws/v3/c55d8ff021d14bcd87b9389c1fbb7cad
+ganache = http://localhost:8545
+etherscan_apikey = 59T7KFJF6QTK9YB6Z9RYXSNZXIPWYVZVIX
+bot = 0x0000feE6275DaB194Ab538A01dD8B18B02b20000
+owner = <EOA>
+owner_keyfile = <keyfile starting with UTC>
+aws = <aws ethereum node server>
